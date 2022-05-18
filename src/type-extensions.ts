@@ -1,10 +1,9 @@
 import "hardhat/types/config"
 import "hardhat/types/runtime"
 
-// import { ExampleHardhatRuntimeEnvironmentField } from "./ExampleHardhatRuntimeEnvironmentField";
-
+import { ThorPlugin } from "./thor"
 declare module "hardhat/types/config" {
-	type ThorConfig = {
+	export type ThorConfig = {
 		url: string;
 		delegate?: string;
 		privateKeys?: string[];
@@ -18,10 +17,8 @@ declare module "hardhat/types/config" {
 	}
 }
 
-// declare module "hardhat/types/runtime" {
-// 	// This is an example of an extension to the Hardhat Runtime Environment.
-// 	// This new field will be available in tasks' actions, scripts, and tests.
-// 	export interface HardhatRuntimeEnvironment {
-// 		example: ExampleHardhatRuntimeEnvironmentField;
-// 	}
-// }
+declare module "hardhat/types/runtime" {
+	export interface HardhatRuntimeEnvironment {
+		thor: ThorPlugin;
+	}
+}
