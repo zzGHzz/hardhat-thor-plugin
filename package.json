@@ -1,7 +1,7 @@
 {
-	"name": "hardhat-thor-ts-plugin",
+	"name": "hardhat-thor-plugin",
 	"version": "0.1.0",
-	"description": "Hardhat plugin for the VeChain Thor protocol written in Typescript",
+	"description": "Hardhat plugin for the VeChain Thor protocol",
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "rm -rf dist && tsc -p .",
@@ -9,14 +9,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/zzGHzz/hardhat-thor-ts-plugin.git"
+		"url": "git+https://github.com/zzGHzz/hardhat-thor-plugin.git"
 	},
 	"author": "Peter Zhou",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/zzGHzz/hardhat-thor-ts-plugin/issues"
+		"url": "https://github.com/zzGHzz/hardhat-thor-plugin/issues"
 	},
-	"homepage": "https://github.com/zzGHzz/hardhat-thor-ts-plugin#readme",
+	"homepage": "https://github.com/zzGHzz/hardhat-thor-plugin#readme",
 	"devDependencies": {
 		"@types/chai": "^4.3.1",
 		"@types/mocha": "^9.1.1",
