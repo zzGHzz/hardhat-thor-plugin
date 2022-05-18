@@ -27,36 +27,36 @@ const registerCustomInspection = (BigNumber: any) => {
 };
 
 export class ThorPlugin {
-	private readonly cfg: ThorConfig
+	private readonly config: ThorConfig
 	private readonly hre: HardhatRuntimeEnvironment
 	private provider?: JsonRpcProvider
 	private driver?: Driver
 
 	constructor(hre: HardhatRuntimeEnvironment) {
 		this.hre = hre
-		const cfg = hre.config.networks.thor
-		if (!cfg) {
+		const config = hre.config.thor
+		if (!config) {
 			throw new HardhatPluginError(
 				pluginName,
 				'Thor network config not found'
 			)
 		}
-		this.cfg = cfg
+		this.config = config
 	}
 
 	connect = async () => {
 		const wallet = new SimpleWallet()
-		const pks = this.cfg.privateKeys
+		const pks = this.config.privateKeys
 		if (pks && pks.length > 0) {
 			pks.forEach(pk => { wallet.import(pk) })
 		}
-		const net = new SimpleNet(this.cfg.url)
+		const net = new SimpleNet(this.config.url)
 		try {
 			this.driver = await Driver.connect(net, wallet);
 		} catch (err: any) {
 			throw new HardhatPluginError(
 				pluginName,
-				`Cannot connect to the Thor node using url: ${this.cfg.url}`,
+				`Cannot connect to the Thor node using url: ${this.config.url}`,
 				err
 			)
 		}

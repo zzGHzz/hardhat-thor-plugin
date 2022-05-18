@@ -8,9 +8,9 @@ const pluginName = 'hardhat-thor'
 
 extendConfig(
 	(config: HardhatConfig, userConfig: Readonly<HardhatUserConfig>) => {
-		const thor = userConfig.networks?.thor
+		const thor = userConfig.thor
 		if (thor) {
-			config.networks.thor = {
+			config.thor = {
 				url: thor.url,
 				privateKeys: thor.privateKeys?.map(x => x),
 				delegate: thor.delegate

@@ -1,18 +1,18 @@
 import "hardhat/types/config"
 import "hardhat/types/runtime"
-
 import { ThorPlugin } from "./thor"
 declare module "hardhat/types/config" {
-	export type ThorConfig = {
+	export interface ThorConfig {
 		url: string;
 		delegate?: string;
 		privateKeys?: string[];
 	}
 
-	export interface NetworksConfig {
+	export interface HardhatConfig{
 		thor: ThorConfig;
 	}
-	export interface NetworksUserConfig {
+	
+	export interface HardhatUserConfig {
 		thor?: ThorConfig;
 	}
 }
